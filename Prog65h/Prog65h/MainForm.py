@@ -76,7 +76,7 @@ class MainForm(Form):
         self._label1.Name = "label1"
         self._label1.Size = System.Drawing.Size(157, 38)
         self._label1.TabIndex = 4
-        self._label1.Text = "<-Shilings"
+        self._label1.Text = "<-Pounds"
         self._label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         # 
         # label2
@@ -87,7 +87,7 @@ class MainForm(Form):
         self._label2.Name = "label2"
         self._label2.Size = System.Drawing.Size(157, 38)
         self._label2.TabIndex = 5
-        self._label2.Text = "<-Pounds"
+        self._label2.Text = "<-Shilings"
         self._label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         # 
         # label3
@@ -181,16 +181,20 @@ class MainForm(Form):
 
 
     def Button1Click(self, sender, e):
-        Shiling = float(1 / 20)
-        Pound   = float(20 * Shilings)
+        Shiling = 
+        Pound   = float(20 * Shiling)
         Pence   = float(12 / Shiling)
-        OldAmount = str("£Shiling.Pound.Pence")
-        NewAmount = 
+        OldAmount = str(Pound.Shiling.Pence)
+        NewAmount = str(Pound + (Shiling/20 + Pence/20))
         self._label5.Text = "" + str(OldAmount)
         self._label7.Text = "" + str(NewAmount)
 
     def Button2Click(self, sender, e):
-        pass
+        self._textBox1.Text = ""
+        self._textBox2.Text = ""
+        self._textBox3.Text = ""
+        self._label5.Text = ""
+        self._label7.Text = ""
 
     def Button3Click(self, sender, e):
         Application.Exit()
