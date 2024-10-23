@@ -16,10 +16,8 @@ class MainForm(Form):
         self._label1 = System.Windows.Forms.Label()
         self._label2 = System.Windows.Forms.Label()
         self._label3 = System.Windows.Forms.Label()
-        self._label4 = System.Windows.Forms.Label()
         self._textBox2 = System.Windows.Forms.TextBox()
         self._textBox3 = System.Windows.Forms.TextBox()
-        self._label5 = System.Windows.Forms.Label()
         self._label6 = System.Windows.Forms.Label()
         self._label7 = System.Windows.Forms.Label()
         self.SuspendLayout()
@@ -101,17 +99,6 @@ class MainForm(Form):
         self._label3.Text = "<-Pences"
         self._label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         # 
-        # label4
-        # 
-        self._label4.BackColor = System.Drawing.Color.FromArgb(255, 192, 255)
-        self._label4.Font = System.Drawing.Font("Microsoft Sans Serif", 15, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0)
-        self._label4.Location = System.Drawing.Point(214, 300)
-        self._label4.Name = "label4"
-        self._label4.Size = System.Drawing.Size(157, 38)
-        self._label4.TabIndex = 7
-        self._label4.Text = "<-OldAmount"
-        self._label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        # 
         # textBox2
         # 
         self._textBox2.Font = System.Drawing.Font("Microsoft Sans Serif", 20, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0)
@@ -128,20 +115,11 @@ class MainForm(Form):
         self._textBox3.Size = System.Drawing.Size(194, 38)
         self._textBox3.TabIndex = 9
         # 
-        # label5
-        # 
-        self._label5.BackColor = System.Drawing.Color.FromArgb(255, 192, 255)
-        self._label5.Location = System.Drawing.Point(13, 300)
-        self._label5.Name = "label5"
-        self._label5.Size = System.Drawing.Size(195, 38)
-        self._label5.TabIndex = 10
-        self._label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        # 
         # label6
         # 
         self._label6.BackColor = System.Drawing.Color.FromArgb(255, 192, 255)
         self._label6.Font = System.Drawing.Font("Microsoft Sans Serif", 15, System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, 0)
-        self._label6.Location = System.Drawing.Point(214, 357)
+        self._label6.Location = System.Drawing.Point(213, 319)
         self._label6.Name = "label6"
         self._label6.Size = System.Drawing.Size(157, 38)
         self._label6.TabIndex = 11
@@ -151,7 +129,7 @@ class MainForm(Form):
         # label7
         # 
         self._label7.BackColor = System.Drawing.Color.FromArgb(255, 192, 255)
-        self._label7.Location = System.Drawing.Point(12, 360)
+        self._label7.Location = System.Drawing.Point(12, 319)
         self._label7.Name = "label7"
         self._label7.Size = System.Drawing.Size(195, 38)
         self._label7.TabIndex = 12
@@ -163,10 +141,8 @@ class MainForm(Form):
         self.ClientSize = System.Drawing.Size(596, 422)
         self.Controls.Add(self._label7)
         self.Controls.Add(self._label6)
-        self.Controls.Add(self._label5)
         self.Controls.Add(self._textBox3)
         self.Controls.Add(self._textBox2)
-        self.Controls.Add(self._label4)
         self.Controls.Add(self._label3)
         self.Controls.Add(self._label2)
         self.Controls.Add(self._label1)
@@ -181,13 +157,13 @@ class MainForm(Form):
 
 
     def Button1Click(self, sender, e):
-        Shiling = 
-        Pound   = float(20 * Shiling)
-        Pence   = float(12 / Shiling)
-        OldAmount = str(Pound.Shiling.Pence)
-        NewAmount = str(Pound + (Shiling/20 + Pence/20))
-        self._label5.Text = "" + str(OldAmount)
-        self._label7.Text = "" + str(NewAmount)
+        Pound   = int(self._textBox1.Text)
+        UndividedShiling = int(self._textBox2.Text)
+        Shiling = float(UndividedShiling/20)
+        UndividedPence   = int(self._textBox3.Text)
+        Pence   = float(UndividedPence/240)
+        Total = float(round(Pound + Shiling + Pence,2))
+        self._label7.Text = "" + str(Total)
 
     def Button2Click(self, sender, e):
         self._textBox1.Text = ""
