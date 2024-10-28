@@ -157,11 +157,11 @@ class MainForm(Form):
 
 
     def Button1Click(self, sender, e):
-        Pound   = int(self._textBox1.Text)
-        UndividedShiling = int(self._textBox2.Text)
-        Shiling = float(UndividedShiling/20)
-        UndividedPence   = int(self._textBox3.Text)
-        Pence   = float(UndividedPence/240)
+        Pound   = float(self._textBox1.Text)
+        UndividedShiling = float(self._textBox2.Text)
+        Shiling = UndividedShiling * 0.05
+        UndividedPence  = float(self._textBox3.Text)
+        Pence = float(UndividedPence / 240)
         Total = float(round(Pound + Shiling + Pence,2))
         self._label7.Text = "" + str(Total)
 
@@ -169,7 +169,6 @@ class MainForm(Form):
         self._textBox1.Text = ""
         self._textBox2.Text = ""
         self._textBox3.Text = ""
-        self._label5.Text = ""
         self._label7.Text = ""
 
     def Button3Click(self, sender, e):
