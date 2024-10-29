@@ -215,24 +215,24 @@ class MainForm(Form):
 
     def Button1Click(self, sender, e):
         KiloUsed = int(self._textBox1.Text)
-        BaseR    = float(KiloUsed * 0.0475)
-        BaseR    = self._label6.Text = "$ " + str(BaseR)
-        SurCharge = float(round(BaseR * 0.10,2))
-        SurCharge = self._label7.Text = "$ " + str(SurCharge)
+        BaseR    = float(round(KiloUsed * 0.0475, 2))
+        SurCharge = float(round(BaseR * 0.10, 2))
         CityTax  = float(round(BaseR * 0.03,2))
-        CityTax  = self._label8.Text = "$ " + str(CityTax)
         Total    = BaseR + SurCharge + CityTax
+        TotMay   = float(round(Total * 1.04, 2))
+        CityTax  = self._label8.Text = "$ " + str(CityTax)
+        SurCharge = self._label7.Text = "$ " + str(SurCharge)
+        BaseR = self._label6.Text = "$ " + str(BaseR)
         Total    = self._label9.Text = "$ " + str(Total)
-        TotMay   = Total * 1.04
         TotMay   = self._label12.Text = "$ " + str(TotMay)
 
     def Button2Click(self, sender, e):
         self._textBox1.Text = ""
-        self._label6.Text = ""
-        self._label7.Text = ""
-        self._label8.Text = ""
-        self._label9.Text = ""
-        self._label12.Text = ""
+        self._label6.Text = "$ "
+        self._label7.Text = "$ "
+        self._label8.Text = "$ "
+        self._label9.Text = "$ "
+        self._label12.Text = "$ "
 
     def Button3Click(self, sender, e):
         Application.Exit()
