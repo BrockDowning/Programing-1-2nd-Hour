@@ -76,7 +76,7 @@ class MainForm(Form):
 
 
     def Button1Click(self, sender, e):
-        Output = 
+        Column1 = num in range(2, 11, 2)
 
     def Button2Click(self, sender, e):
         self._listBox1.Items.Clear()
