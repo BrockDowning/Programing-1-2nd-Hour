@@ -76,7 +76,13 @@ class MainForm(Form):
 
 
     def Button1Click(self, sender, e):
-        Column1 = num in range(2, 11, 2)
+        for column1 in range(2, 11, 2):
+            column2 = column1 + 1
+            column3 = column1 * 2
+            column4 = column1 * column1
+            list    = str(column1) + "\t" + str(column2) + "\t" + str(column3) + "\t" + str(column4)
+            self._listBox1.Items.Add(list)
+        
 
     def Button2Click(self, sender, e):
         self._listBox1.Items.Clear()
