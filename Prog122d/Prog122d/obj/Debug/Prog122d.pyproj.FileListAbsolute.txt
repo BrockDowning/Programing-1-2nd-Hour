@@ -7,6 +7,4 @@ C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\bin\Debug\Mic
 C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\bin\Debug\Microsoft.Scripting.dll
 C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\bin\Debug\Microsoft.Scripting.Metadata.dll
 C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\obj\Debug\Prog122d.pyprojResolveAssemblyReference.cache
-C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\obj\Debug\Prog122d.MainForm.resources
-C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\obj\Debug\Prog122d.pyproj.GenerateResource.Cache
 C:\Users\downing.b\Desktop\Programing 1 2nd Hour\Prog122d\Prog122d\obj\Debug\Prog122d.exe

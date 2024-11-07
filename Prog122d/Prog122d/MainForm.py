@@ -75,8 +75,21 @@ class MainForm(Form):
 
     def Button1Click(self, sender, e):
         for x in range(-12, 17, 1):
-            y1 = -12 **6 - 3(-12**5) - 93(-12**4) + 87(-12**3) + 1596(-12**2) - 1380 * -12 - 2800
-            self._listBox1.Items.Add(y1)
+            sixth  = x**6
+            fifth  = x**5
+            fourth = x**4
+            third  = x**3
+            second = x**2
+                    for x in range(-12, 17, 1):
+            sixth  = x**6
+            fifth  = x**5
+            fourth = x**4
+            third  = x**3
+            second = x**2
+            x = -12
+            formula = sixth - 3(fifth) - 93(forth) + 87(third) + 1596(second) - 1380 * x - 2800
+            self._listBox1.Items.Add(formula)
+            self._listBox1.Items.Add(x)
 
     def Button2Click(self, sender, e):
         self._listBox1.Items.Clear()
