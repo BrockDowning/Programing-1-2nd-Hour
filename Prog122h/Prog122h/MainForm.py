@@ -77,8 +77,8 @@ class MainForm(Form):
             Square = num**2
             squarer   = math.sqrt(num)
             Cube   = (num**2 * num)
-            FRoot = 0
-            list   = str(num) + "\t" + str(Square) + "\t" + str(squarer) + "\t" + str(Cube) + "\t" + str(FRoot)
+            FRoot = num ** (1 / 4.0)
+            list   = str(num) + "\t" + str(Square) + "\t" + str(round(squarer, 4)) + "\t" + str(Cube) + "\t" + str(round(FRoot, 4))
             self._listBox1.Items.Add(list)
 
     def Button2Click(self, sender, e):
