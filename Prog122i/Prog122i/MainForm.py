@@ -76,8 +76,10 @@ class MainForm(Form):
     def Button1Click(self, sender, e):
         for num in range(-25, 26):
             cubed = (num**2) * num
-            CubeR = num**1/3.00
-            list = str(num) + "\t\t" + str(CubeR) + "\t\t" + str(cubed)
+            CubeR = abs(num)**(1/3.00)
+            if num < 0:
+                CubeR = 0 - CubeR
+            list = str(num) + "\t\t" + str(round(CubeR, 5)) + "\t\t" + str(cubed)
             self._listBox1.Items.Add(list)
 
     def Button2Click(self, sender, e):
