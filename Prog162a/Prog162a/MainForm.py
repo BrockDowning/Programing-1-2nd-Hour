@@ -154,8 +154,11 @@ class MainForm(Form):
 
 
     def Button1Click(self, sender, e):
-        int = self._textBox1.Text
-        
+        test = int(self._textBox1.Text)
+        last = 1
+        for ttt in range(1, test + 1):
+            last *= ttt
+        self._label1.Text = "" + str(last)
 
     def Button3Click(self, sender, e):
         self._textBox1.Text = ""
