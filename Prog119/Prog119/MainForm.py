@@ -125,12 +125,13 @@ class MainForm(Form):
     def Button1Click(self, sender, e):
         First = self._textBox1.Text
         Last  = self._textBox2.Text
-        FN    = str(First) + str(Last)
+        FN    = str(First) + "\t" + str(Last)
+        self._label3.Text = "Full Name: " + str(FN)
 
     def Button2Click(self, sender, e):
         self._textBox1.Text = ""
-        self._textBox1.Text = ""
-        self._label3.Text = "Full Name: " + str(FN)
+        self._textBox2.Text = ""
+        self._label3.Text = "Full Name: "
 
     def Button3Click(self, sender, e):
         Application.Exit()
