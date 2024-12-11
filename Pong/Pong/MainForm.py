@@ -128,6 +128,69 @@ class MainForm(Form):
         pass
 
     def MainFormKeyDown(self, sender, e):
+        tball  = self._timerball
+        tdum   = self._timerdummy
+        tbool  = self._timerboolean
+        tmult  = self._timermulti
+        tleft  = self._timerleft
+        tright = self._timerright
+        bl     = self._lblball
+        lpdl   = self._lblleft
+        rpdl   = self._lblright
+        title  = self._lbltitle
+        
+        def reset():
+            title.Visible = True
+            title.Text = "Press Enter to Start or M to Start Muliplayer"
+            self._leftscore.Text = "0"
+            self._rightscore.Text = "0"
+            tball.Enabled  = False
+            tdum.Enabled   = False
+            tbool.Enabled  = False
+            tmult.Enabled  = False
+            tleft.Enabled  = False
+            tright.Enabled = False
+            bl.Left = self.Width // 2
+            bl.Top = self.Height // 2
+            lpdl.Top = (self.Height // 2) - 50 + lpdl.Height
+            rpdl.Top = (self.Height // 2) - 50 + rpdl.Height
+            """ TODO: RESET SECRETS """
+            bl.BackColor = Color.White
+            
+        if e.KeyCode == Keys.R:
+            reset()
+            
+        """ TODO: SECRET CONTROL """
+        
+        if e.KeyCode == Keys.Enter:
+            tball.Enabled = True
+            tdum.Enabled  = True
+            tbool.Enabled = not tmult.Enabled
+            title.Visible = False
+            
+        if e.KeyCode == Keys.M:
+            reset()
+            title.Visible = True
+            title.Text = "Use W and S to Move the Left Paddle; Hit Enter to Start"
+            tmult.Enabled = True
+            
+        if tdum.Enabled:
+            if e.KeyCode == Keys.Up:
+                self.flagright = False
+                tright.Enabled = True
+            elif e.KeyCode == Keys.Down:
+                self.flagright = True
+                tright.Enabled = True
+                
+        """ TODO: FINISH MULTIPLAYER CONTROLS """
+        if tmult.Enabled and tball.Enabled:
+            if e.KeyCode == Keys.W:
+                self.flagleft = False
+                tleft.Enabled = True
+            elif e.KeyCode == Keys.S:
+                self.flagleft = True
+                tleft.Enabled = True
+            
         pass
 
     def MainFormLoad(self, sender, e):
