@@ -61,6 +61,7 @@ class MainForm(Form):
         self._rightscore.TabIndex = 2
         self._rightscore.Text = "0"
         self._rightscore.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
+        self._rightscore.DoubleClick += self.RightscoreDoubleClick
         # 
         # lblball
         # 
@@ -78,6 +79,7 @@ class MainForm(Form):
         self._lblleft.Name = "lblleft"
         self._lblleft.Size = System.Drawing.Size(20, 100)
         self._lblleft.TabIndex = 4
+        self._lblleft.DoubleClick += self.LblleftDoubleClick
         # 
         # lblright
         # 
@@ -86,6 +88,15 @@ class MainForm(Form):
         self._lblright.Name = "lblright"
         self._lblright.Size = System.Drawing.Size(20, 100)
         self._lblright.TabIndex = 5
+        # 
+        # timerdummy
+        # 
+        self._timerdummy.Interval = 1
+        # 
+        # timerboolean
+        # 
+        self._timerboolean.Enabled = True
+        self._timerboolean.Interval = 95
         # 
         # timerright
         # 
@@ -99,7 +110,7 @@ class MainForm(Form):
         # 
         # timerball
         # 
-        self._timerball.Interval = 20
+        self._timerball.Interval = 10
         self._timerball.Tick += self.TimerballTick
         # 
         # timermulti
@@ -201,7 +212,7 @@ class MainForm(Form):
         
         def reset():
             title.Visible = True
-            title.Text = "Press Enter to Start or M to Start Muliplayer"
+            title.Text = "Press Enter to Start or M to Start Multiplayer"
             self._leftscore.Text = "0"
             self._rightscore.Text = "0"
             tball.Enabled  = False
@@ -214,7 +225,15 @@ class MainForm(Form):
             bl.Top = self.Height // 2
             lpdl.Top = (self.Height // 2) - 50 + lpdl.Height
             rpdl.Top = (self.Height // 2) - 50 + rpdl.Height
-            """ TODO: RESET SECRETS """
+            self.BackColor = Color.Black
+            self._lblballBackColor = Color.White
+            self._lblleftBackColor = Color.White
+            self._lblrightBackColor = Color.White
+            self._rightscoreBackColor = Color.Black
+            self._leftscoreBackColor = Color.Black
+            self._rightscoreForeColor = Color.White
+            self._leftscoreForeColor = Color.White
+            self._lbltitleForeColor  = Color.White
             bl.BackColor = Color.White
             
         if e.KeyCode == Keys.R:
@@ -242,7 +261,9 @@ class MainForm(Form):
                 self.flagright = True
                 tright.Enabled = True
                 
-        """ TODO: FINISH MULTIPLAYER CONTROLS """
+        if e.KeyCode == Keys.B:
+            tbool.Enabled = False
+                
         if tmult.Enabled and tball.Enabled:
             if e.KeyCode == Keys.W:
                 self.flagleft = False
@@ -254,7 +275,6 @@ class MainForm(Form):
         pass
 
     def MainFormLoad(self, sender, e):
-        """ TODO: ADD 3 Unique secrets/cheats/easter eggs in total and finish multiplayer and scoreboard and dummy ai"""
         self.balld = 1
         self.balldup = self.R.Next(-4, 5)
     
@@ -273,9 +293,8 @@ class MainForm(Form):
         self.pdlTick(self._lblright, self.flagright, self._timerright)
 
     def LblballClick(self, sender, e):
-        self._lblball.BackColor = Color.Red
-        self.BackColor = Color.Green # Form BG Color
-        """ TODO: PUT MORE EASTER EGGS LATER """
+        self._lblball.BackColor = Color.Blue
+        self.BackColor = Color.Red 
 
     def MainFormSizeChanged(self, sender, e):
         self._lblright.Left = self.Width - 25 - self._lblright.Width
@@ -283,3 +302,21 @@ class MainForm(Form):
         self._lbltitle.Width = self.Width - 25
         self._lblball.Left = self.Width // 2
         self._lblball.Top = self.Height // 2
+
+    def RightscoreDoubleClick(self, sender, e):
+        self._rightscore.BackColor = Color.Azure
+        self._leftscore.BackColor  = Color.Bisque
+        self._lblright.BackColor   = Color.DarkKhaki
+        self._lblleft.BackColor    = Color.DarkKhaki
+        self._rightscore.ForeColor = Color.Black
+        self._leftscore.ForeColor  = Color.Black
+        
+
+    def LblleftDoubleClick(self, sender, e):
+        self.BackColor         = Color.AntiqueWhite
+        self._lblball.BackColor  = Color.Aqua
+        self._lblright.BackColor = Color.CadetBlue
+        self._lblleft.BackColor  = Color.CornflowerBlue
+        self._rightscore.ForeColor = Color.Navy
+        self._leftscore.ForeColor  = Color.Navy
+        self._lbltitle.ForeColor      = Color.Navy
