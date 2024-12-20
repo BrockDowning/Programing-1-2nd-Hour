@@ -97,6 +97,7 @@ class MainForm(Form):
         # 
         self._timerboolean.Enabled = True
         self._timerboolean.Interval = 95
+        self._timerboolean.Tick += self.TimerbooleanTick
         # 
         # timerright
         # 
@@ -196,6 +197,8 @@ class MainForm(Form):
         """ TODO: ? """
         if self._timerboolean.Enabled:
             lpdl.Top = ball.Top - 20
+            if lscore > rscore:
+                lpdl.Location.X = - 75
         pass
 
     def MainFormKeyDown(self, sender, e):
@@ -226,14 +229,14 @@ class MainForm(Form):
             lpdl.Top = (self.Height // 2) - 50 + lpdl.Height
             rpdl.Top = (self.Height // 2) - 50 + rpdl.Height
             self.BackColor = Color.Black
-            self._lblballBackColor = Color.White
-            self._lblleftBackColor = Color.White
-            self._lblrightBackColor = Color.White
-            self._rightscoreBackColor = Color.Black
-            self._leftscoreBackColor = Color.Black
-            self._rightscoreForeColor = Color.White
-            self._leftscoreForeColor = Color.White
-            self._lbltitleForeColor  = Color.White
+            self._lblball.BackColor = Color.White
+            self._lblleft.BackColor = Color.White
+            self._lblright.BackColor = Color.White
+            self._rightscore.BackColor = Color.Black
+            self._leftscore.BackColor = Color.Black
+            self._rightscore.ForeColor = Color.White
+            self._leftscore.ForeColor = Color.White
+            self._lbltitle.ForeColor  = Color.White
             bl.BackColor = Color.White
             
         if e.KeyCode == Keys.R:
@@ -320,3 +323,6 @@ class MainForm(Form):
         self._rightscore.ForeColor = Color.Navy
         self._leftscore.ForeColor  = Color.Navy
         self._lbltitle.ForeColor      = Color.Navy
+
+    def TimerbooleanTick(self, sender, e):
+        pass
